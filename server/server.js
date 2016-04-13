@@ -51,6 +51,10 @@ app.delete('/customers/:id', (request, response) => {
   for(var c=0;c<customers.length;c++) {
     if(customers[c].id==request.params.id) {
       customers.splice(c,1);
+
+      for(var customer of customers){
+        console.log(customer.name);
+      }
       response.sendStatus(200);
 
       return;
@@ -96,6 +100,6 @@ var server = app.listen(3000, () => {
     var port = server.address().port;
     console.log('Example app listening at http://%s:%s', host, port);
 }).on('error',(err)=>{
-  
+
 })
 //# sourceMappingURL=server.js.map
